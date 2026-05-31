@@ -1,26 +1,25 @@
+# Setup Turtle and Screen
 import turtle
 screen = turtle.Screen()
 screen.setup(400,400)
-screen.title("Turtle Sandbox")
+screen.title("TracyPrinter")
 screen.bgcolor("white")
 
+# Configure Turtle
 t = turtle.Turtle()
 t.speed(0)
 
-srcWidth = 1
-srcHeight = 5
-sizes = [srcWidth,srcHeight]
-scrnWidth = srcWidth / max(sizes)
-scrnHeight = srcHeight / max(sizes)
-pxlWidth = 400 * scrnWidth
-pxlHeight = 400 * scrnHeight
-
-print(pxlWidth,pxlHeight)
-
+# Image Extraction
+from io import BytesIO
 from PIL import Image
+import requests
 
 def extractData(path):
-    img = Image.open(path).convert("RGBA")
+    if path.startswith("http://") or path.startswith("https://"):
+        res = requests.get(path)
+        img = Image.open(BytesIO(res.content)).convert("RGBA")
+    else:
+        img = Image.open(path).convert("RGBA")
     
     width, height = img.size
     pixels = []
@@ -33,28 +32,27 @@ def extractData(path):
         pixels.append(row)
     return width, height, pixels
 
-#src = "5x5smiley.png"
-#src = "15x15faces.png"
 #src = "20x20justaguy.png"
-src = "jaden-photo1_13percent_25percent.png"
-print(extractData(src))
-width, height, colors = extractData(src)
+src = "https://picsum.photos/10"
 
-#width = 3
-#height = 3
+# Create variables
+width, height, colors = extractData(src)
+print(width, height, colors)
+
 dimensions = [width, height]
 screenSize = screen.window_width()
 globalRadius = (screenSize/2)/max(dimensions)
 
-#colors = [["red","green","blue"],["red","green","blue"],["red","green","blue"]]
-
+# Drawing
 def drawDot(colorParam):
     t.color(colorParam)
     t.begin_fill()
     t.circle(globalRadius)
     t.end_fill()
 
-t.goto(-(globalRadius*width)+globalRadius, (globalRadius*height-1)-globalRadius*2)
+sx = -(globalRadius*width)+globalRadius
+sy = (globalRadius*height-1)-globalRadius*2
+t.goto(sx, sy)
 
 for y in range(height):
     for x in range(width):
@@ -67,4 +65,5 @@ for y in range(height):
         t.forward(globalRadius*2)
         t.left(90)
 
+# Prevent drawing window from closing upon completion
 turtle.done()
