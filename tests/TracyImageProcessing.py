@@ -10,10 +10,9 @@ with open(path_input, "r") as file:
         row = line.strip().split(",")
         restored_matrix.append(row)
 
-# Now to figure out how to actually process the data :/
 print(restored_matrix)
-processed_matrix = restored_matrix
 
+# Process Matrix into Clusters
 def find_clusters(grid):
     height = len(grid)
     width = len(grid[0])
@@ -63,15 +62,19 @@ def find_clusters(grid):
 
     return clusters
 
-processed_matrix = find_clusters(restored_matrix)
-print(processed_matrix)
+cluster_matrix = find_clusters(restored_matrix)
+print(cluster_matrix)
+
+# Create instructions
+
+
 # Write output:
 #with open(path_output, "w") as file:
-#    for row in processed_matrix:
+#    for row in cluster_matrix:
 #        line = ",".join(row)
 #        file.write(line + "\n")
 with open(path_outputClusters, "w") as file:
-    for cluster in processed_matrix:
+    for cluster in cluster_matrix:
         val = cluster["value"]
         # Convert points tuple list [(0,0), (1,0)] to string format "0:0 1:0"
         points_str = " ".join([f"{x}:{y}" for x, y in cluster["points"]])
