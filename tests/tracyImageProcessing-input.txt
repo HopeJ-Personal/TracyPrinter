@@ -1,0 +1,10 @@
+#e5e9f4,#dbdfea,#e9edf8,#f5f9ff,#e8ecf5,#e3e7f0,#e8ecf5,#e1e5ee,#dadfe5,#d2d7dd
+#e0dfe5,#e9e8ed,#f0eff5,#e9e8ed,#e1e0e5,#ebeaef,#efeef3,#e3e2e7,#e4e4e6,#d2d2d4
+#e7ded9,#ebe2db,#e5dcd7,#e3dad5,#f2e9e4,#faf1ec,#ede4df,#e0d7d2,#e0d7d2,#b6ada8
+#baa798,#b4a393,#ad9a8b,#bdac9c,#dbc8ba,#dac8ba,#dac7b9,#efddcf,#998678,#604e40
+#c7ac91,#c8ae93,#bba085,#af957a,#ae927a,#9f856c,#a28670,#bea48d,#745843,#4e331e
+#775839,#8b6e4e,#8e6f50,#866949,#96775a,#a48769,#98795d,#806246,#57371e,#4f3117
+#4f3210,#5d4320,#654828,#5b4120,#694c2e,#806547,#715337,#3d2205,#371900,#2a0e00
+#846d4e,#897455,#917a5b,#7a6548,#664e32,#796449,#977f65,#907a62,#785f49,#513b24
+#cdbea7,#e9ddc5,#d9cab3,#cabea8,#d9cab5,#e0d3c0,#ebdbcb,#e8dbcb,#dbcbbc,#ded1c1
+#9c947f,#ccc4af,#d3cbb8,#d6cebb,#e4dbca,#e1d8c7,#d8cec2,#cac0b4,#c9bfb5,#cfc5bb
